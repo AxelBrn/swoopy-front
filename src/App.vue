@@ -1,11 +1,11 @@
 <template>
-  <div class="">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="bg-light-grey text-white w-screen h-screen">
+    <router-view/>
   </div>
-  <router-view/>
 </template>
 
 <style>
-
+  *:focus {
+    outline: none;
+  }
 </style>
