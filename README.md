@@ -1,5 +1,8 @@
 # swoopy-front
 
+## Components documentation :
+See [components documentation](./docs/library.md)
+
 ## Project setup
 ```
 npm install
