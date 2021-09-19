@@ -1,9 +1,14 @@
 <template>
-  <div :class="[{'outlined': outlined}, outlined ? $attrs.class : '']">
+  <div
+    :class="[{'outlined': outlined}, outlined ? (includeWidth() ?
+      $attrs.class : 'w-content ' + $attrs.class) : '',
+    ]"
+  >
     <button
       :id="$attrs.id"
       class="cursor-pointer relative"
-      :class="[outlined ? '' : $attrs.class, icon ? 'btn-icon' : outlined ? 'btn-outlined' : 'btn']"
+      :class="[outlined ? 'w-full' : $attrs.class, icon ? 'btn-icon' :
+        outlined ? 'btn-outlined' : 'btn']"
       @click="$emit('click')"
     >
       <sw-loader :loading="loading" />
@@ -42,26 +47,31 @@ export default defineComponent({
       default: false,
     },
   },
+  methods: {
+    includeWidth(): boolean {
+      return (this.$attrs.class as string).includes('w-');
+    },
+  },
 });
 </script>
 
 <style scoped>
   .btn {
     @apply flex justify-center items-center bg-gradient-to-r
-    from-purple to-orange rounded-md text-white font-semibold text-base py-2 px-5
+    from-purple to-orange rounded-lg text-white font-semibold text-base py-2 px-5
     transform hover:scale-110 transition duration-500 ease-in-out;
   }
   .btn-icon {
-    @apply flex justify-center items-center bg-light-grey text-white p-2.5 text-base rounded-md
+    @apply flex justify-center items-center bg-light-grey text-white p-2.5 text-base rounded-lg
     transform hover:scale-110 transition duration-500 ease-in-out;
   }
   .btn-outlined {
     @apply flex justify-center items-center text-white font-semibold
-    text-base py-2 px-5 bg-dark-grey rounded-md;
+    text-base py-2 px-5 bg-dark-grey rounded-lg;
   }
   .outlined {
-    @apply p-[1.5px] bg-gradient-to-r from-purple to-orange rounded-md transform
-    hover:scale-110 transition duration-500 ease-in-out w-content;
+    @apply p-[1px] bg-gradient-to-r from-purple to-orange rounded-lg transform
+    hover:scale-110 transition duration-500 ease-in-out;
   }
   /*.btn-icon:hover svg {
     stroke: url(#gradient-horizontal) #BE4176;
