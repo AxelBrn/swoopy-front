@@ -19,12 +19,12 @@ click | Event is emit when the button is clicked.
 
 ### Normal button
 ```html
-<sw-button label="Button" @click="functionExample" />
+<sw-btn label="Button" @click="functionExample" />
 ```
 
 ### Loading Button
 ```html
-<sw-button
+<sw-btn
   label="Button"
   :loading="true"
   @click="functionExample"
@@ -33,7 +33,7 @@ click | Event is emit when the button is clicked.
 
 ### Icon button
 ```html
-<sw-button
+<sw-btn
   label="Button"
   icon
   @click="functionExample"
@@ -42,7 +42,7 @@ click | Event is emit when the button is clicked.
 
 ### Outlined button
 ```html
-<sw-button
+<sw-btn
   label="Button"
   outlined
   @click="functionExample"

@@ -58,19 +58,19 @@ export default defineComponent({
 <style scoped>
   .btn {
     @apply flex justify-center items-center bg-gradient-to-r
-    from-purple to-orange rounded-lg text-white font-semibold text-base py-2 px-5
+    from-purple to-orange rounded-[12px] text-white font-semibold text-base py-2 px-5
     transform hover:scale-110 transition duration-500 ease-in-out;
   }
   .btn-icon {
-    @apply flex justify-center items-center bg-light-grey text-white p-2.5 text-base rounded-lg
+    @apply flex justify-center items-center bg-light-grey text-white p-2.5 text-base rounded-[12px]
     transform hover:scale-110 transition duration-500 ease-in-out;
   }
   .btn-outlined {
     @apply flex justify-center items-center text-white font-semibold
-    text-base py-2 px-5 bg-dark-grey rounded-lg;
+    text-base py-2 px-5 bg-dark-grey rounded-[12px];
   }
   .outlined {
-    @apply p-[1px] bg-gradient-to-r from-purple to-orange rounded-lg transform
+    @apply p-[1px] bg-gradient-to-r from-purple to-orange rounded-[12px] transform
     hover:scale-110 transition duration-500 ease-in-out;
   }
   /*.btn-icon:hover svg {

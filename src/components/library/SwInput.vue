@@ -1,13 +1,19 @@
 <template>
   <div id="box">
     <div
-      class="p-[1px] bg-gradient-to-r from-purple to-orange rounded-md relative"
+      class="p-[1px] bg-gradient-to-r from-purple to-orange rounded-[12px] relative"
       :class="{'bg-gradient-to-r from-[red] to-[red]': isErrored.error && count > 0}"
     >
+      <f-icon
+        v-if="prependIcon !== ''"
+        class="absolute left-3 z-10 top-[18%] select-none"
+        :name="prependIcon"
+      />
       <input
-        class="rounded-md bg-dark-grey placeholder-opacity-0 placeholder-white
+        class="rounded-[12px] bg-dark-grey placeholder-opacity-0 placeholder-white
         h-10 px-1 transition duration-300 ease-linear
         focus:bg-opacity-75 focus:placeholder-opacity-75"
+        :class="prependIcon !== '' ? 'pl-10' : ''"
         :type="type"
         :value="modelValue"
         :loading="true"
@@ -21,10 +27,10 @@
       </label>
     </div>
     <div
-      class="test inline-flex overflow-hidden truncate w-0 h-0 text-[red]"
+      class="test inline-flex overflow-hidden truncate text-[red]"
       :class="isErrored.error && count > 0
       ? width.concat(' h-auto')
-      : ''">
+      : 'w-0 h-0'">
       {{ isErrored.message}}
     </div>
   </div>
@@ -56,6 +62,10 @@ export default defineComponent({
     type: {
       type: String,
       default: 'text',
+    },
+    prependIcon: {
+      type: String,
+      default: '',
     },
   },
   created() {
