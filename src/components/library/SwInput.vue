@@ -1,5 +1,5 @@
 <template>
-  <div id="box">
+  <div id="box" class="flex flex-col">
     <div
       class="p-[1px] bg-gradient-to-r from-purple to-orange rounded-[12px] relative"
       :class="{'bg-gradient-to-r from-[red] to-[red]': isErrored.error && count > 0}"
