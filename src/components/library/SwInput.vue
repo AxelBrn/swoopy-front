@@ -8,7 +8,7 @@
         class="rounded-md bg-dark-grey placeholder-opacity-0 placeholder-white
         h-10 px-1 transition duration-300 ease-linear
         focus:bg-opacity-75 focus:placeholder-opacity-75"
-        type="text"
+        :type="type"
         :value="modelValue"
         :loading="true"
         :placeholder="placeholder"
@@ -17,7 +17,7 @@
       />
       <label class="label absolute pointer-events-none
       top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
-        Username
+        {{ label }}
       </label>
     </div>
     <div
@@ -45,9 +45,17 @@ export default defineComponent({
       type: String,
       default: ' ',
     },
+    label: {
+      type: String,
+      default: '',
+    },
     rules: {
       type: Array as PropType<CallableFunction[]>,
       default: () => [],
+    },
+    type: {
+      type: String,
+      default: 'text',
     },
   },
   created() {
